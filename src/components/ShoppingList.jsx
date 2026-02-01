@@ -1,21 +1,12 @@
-import "../style/form.scss"
-function ShoppingList() {
-  
+export default functionShoppingList({}){
+ 
+
 
   return (
-    <>
-    <section>
-        <article>
-            <label htmlFor=""> Melk
-                <input type="checkbox" />
-            </label>
-            
-                <label htmlFor=""> egg
-            <input type="checkbox" />
-            </label>
-        </article>
-    </section>
-    </>
-  )
+    <label htmlFor="item.id">{item.navn}
+    <input type="checkbox" checked={item.checked} name="" id="" />
+    </label>
+
+
+    )
 }
-export default ShoppingList
