@@ -1,0 +1,29 @@
+$withe: #fff;
+$black: #000;
+
+form{
+
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    gap: 1rem;
+    background-color: $withe;
+    color: $black;
+    padding: 1rem;
+
+    label{
+        font-weight: bold;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        
+        input{
+            border-radius: 10px;
+            height: 2rem;
+            width: 100%;
+        }
+    }
+
+
+}
+
