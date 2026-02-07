@@ -1,12 +1,21 @@
-export default functionShoppingList({}){
- 
+import { useState } from "react";
+import AddForm from "./AddForm";
 
+export default function ShoppingList() {
+  const [items, setItems] = useState([]);
+
+  function addItem(item) {
+    setItems([...items, item]);
+  }
 
   return (
-    <label htmlFor="item.id">{item.navn}
-    <input type="checkbox" checked={item.checked} name="" id="" />
-    </label>
-
-
-    )
+    <>
+      <AddForm onAddItem={addItem} />
+      {items.map(item => (
+        <p key={item.id}>
+          {item.produkt} ({item.antall})
+        </p>
+      ))}
+    </>
+  );
 }

@@ -1,19 +1,41 @@
-import "../style/form.scss"
-function AddForm() {
+import { useState } from "react";
+import "../style/form.scss";
+
+function AddForm({ onAddItem }) {
+  const [produkt, setProdukt] = useState("");
+  const [antall, setAntall] = useState(1);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    const newItem = {
+      id: Date.now(),
+      produkt,
+      antall: Number(antall),
+      checked: false
+    };
+
+    onAddItem(newItem);
+
+    // nullstill skjema
+    setProdukt("");
+    setAntall(1);
+  }
+
   
 
   return (
     <>
-    <form >
-        <label id="legVare" htmlFor="">Vare
-        <input type="text" placeholder="Tomat" />
-        </label>
+    <form onSubmit={handleSubmit}>
+      <label> Vare
+        <input type="text" placeholder="Tomat" value={produkt} onChange={(e) => setProdukt(e.target.value)}/>
+      </label>
         
-        <label htmlFor="legAntall">Antall
-        <input id="legAntall" type="number" placeholder="1" />
-        </label>
+      <label> Antall
+        <input type="number" min="1" value={antall} onChange={(e) => setAntall(e.target.value)} />
+      </label>
 
-        <button>Legg til vare</button>
+      <button type="submit">Legg til vare</button>
     </form>
     </>
   )
