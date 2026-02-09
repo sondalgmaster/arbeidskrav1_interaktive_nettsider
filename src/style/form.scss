@@ -1,29 +1,105 @@
-$withe: #fff;
+$white: #fff;
 $black: #000;
+$gray: #ddd;
+$green: #2e7d32;
+$red: #b00020;
 
-form{
-
-    display: flex;
+body {
     flex-direction: column;
-    margin: 0;
-    gap: 1rem;
-    background-color: $withe;
-    color: $black;
-    padding: 1rem;
-
-    label{
-        font-weight: bold;
-        display: flex;
-        flex-direction: column;
-        text-align: left;
-        
-        input{
-            border-radius: 10px;
-            height: 2rem;
-            width: 100%;
-        }
-    }
-
-
 }
 
+main {
+  max-width: 420px;
+  margin: 2rem auto; 
+  padding: 1rem;
+  background-color: $white;
+  color: $black;
+}
+
+
+h1 {
+  text-align: left;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: $white;
+  padding: 1rem;
+  border: 1px solid $gray;
+  border-radius: 10px;
+
+  label {
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    input {
+      border-radius: 10px;
+      height: 2rem;
+      padding: 0 0.5rem;
+      border: 1px solid $gray;
+    }
+  }
+
+  button {
+    height: 2.5rem;
+    border-radius: 10px;
+    border: none;
+    background-color: $black;
+    color: $white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  button:hover {
+    opacity: 0.85;
+  }
+
+  p {
+    color: $red;
+    font-weight: bold;
+  }
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border: 1px solid $gray;
+  border-radius: 10px;
+
+  input[type="number"] {
+    width: 4rem;
+    height: 2rem;
+    border-radius: 8px;
+    border: 1px solid $gray;
+    padding-left: 0.5rem;
+  }
+
+  label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+  }
+}
+
+/* Stil for kjøpte varer */
+li:has(input[type="checkbox"]:checked) {
+  opacity: 0.6;
+  text-decoration: line-through;
+  color: $green;
+}

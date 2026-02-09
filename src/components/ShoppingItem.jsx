@@ -1,16 +1,25 @@
-import ShoppingItem from "./ShoppingItem";
-
-export default function ShoppingList() {
-  const items = [
-    { id: 1, produkt: "eple", antall: 2, checked: false },
-    { id: 2, produkt: "banan", antall: 5, checked: true }
-  ];
-
+function ShoppingItem({ item, onToggle, onUpdateAntall }) {
   return (
-    <div>
-      {items.map(item => (
-        <ShoppingItem key={item.id} item={item} />
-      ))}
-    </div>
+    <li>
+      <label>
+        <input
+          type="checkbox"
+          checked={item.checked}
+          onChange={() => onToggle(item.id)}
+        />
+        {item.produkt}
+      </label>
+
+      <input
+        type="number"
+        min="1"
+        value={item.antall}
+        onChange={e =>
+          onUpdateAntall(item.id, Number(e.target.value))
+        }
+      />
+    </li>
   );
 }
+
+export default ShoppingItem;

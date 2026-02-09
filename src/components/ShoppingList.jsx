@@ -1,21 +1,18 @@
-import { useState } from "react";
-import AddForm from "./AddForm";
+import ShoppingItem from "./ShoppingItem";
 
-export default function ShoppingList() {
-  const [items, setItems] = useState([]);
-
-  function addItem(item) {
-    setItems([...items, item]);
-  }
-
+function ShoppingList({ items, onToggle, onUpdateAntall }) {
   return (
-    <>
-      <AddForm onAddItem={addItem} />
+    <ul>
       {items.map(item => (
-        <p key={item.id}>
-          {item.produkt} ({item.antall})
-        </p>
+        <ShoppingItem
+          key={item.id}
+          item={item}
+          onToggle={onToggle}
+          onUpdateAntall={onUpdateAntall}
+        />
       ))}
-    </>
+    </ul>
   );
 }
+
+export default ShoppingList;
